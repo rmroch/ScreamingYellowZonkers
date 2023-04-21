@@ -11,15 +11,18 @@ public class GameController : MonoBehaviour
     public GameObject splashScreen;
     public GameObject startButton;
     public GameObject gameOver;
+    Score score;
 
     private bool playing;
     private float maxWidth;
 
     void Start()
     {
+        score = GameObject.FindGameObjectWithTag("box").GetComponent<Score>();
         splashScreen.SetActive(true);
         startButton.SetActive(true);
         gameOver.SetActive(false);
+        
         if (cam == null)
         {
             cam = Camera.main;
@@ -41,6 +44,8 @@ public class GameController : MonoBehaviour
             {
                 timeLeft = 0;
                 gameOver.SetActive(true);
+                splashScreen.SetActive(true);
+                startButton.SetActive(true);
             }
             UpdateText();
         }
@@ -72,6 +77,9 @@ public class GameController : MonoBehaviour
     {
         splashScreen.SetActive(false);
         startButton.SetActive(false);
+        gameOver.SetActive(false);
+        score.ResetScore();
+        timeLeft = 30;
         StartCoroutine(Spawn());
         playing = true;
     }

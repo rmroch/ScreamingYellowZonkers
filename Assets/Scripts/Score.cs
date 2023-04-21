@@ -27,4 +27,10 @@ public class Score : MonoBehaviour
     {
         scoreText.text = string.Format("Zonkers:\n{0}", score);
     }
+
+    public void ResetScore()
+    {
+        score = 0;
+        UpdateScore();
+    }
 }
