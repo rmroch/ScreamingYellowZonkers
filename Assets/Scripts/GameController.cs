@@ -7,11 +7,12 @@ public class GameController : MonoBehaviour
     public Camera cam;
     public GameObject popcorn;
     public Text timerText;
-    public float timeLeft;
+    public float timeLeft = 0;
     public GameObject splashScreen;
     public GameObject startButton;
     public GameObject gameOver;
     Score score;
+    
 
     private bool playing;
     private float maxWidth;
